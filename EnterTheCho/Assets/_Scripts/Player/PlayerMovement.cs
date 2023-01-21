@@ -5,9 +5,12 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 _movementInput;
-
+    [SerializeField] private float _movementSpeed;
+    private Rigidbody2D rb;
+    [SerializeField] private float _DodgeRollDistance;
     private void Start() {
         SubscribeToActions();
+        rb = GetComponent<Rigidbody2D>();
     }
     // movement including walking, dodging, effects like slow, sprinting, etc.
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -32,9 +35,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Dodge()
     {
-
+        // start animation
+        
+        rb.MovePosition(rb.position + _movementInput *_DodgeRollDistance);
     }
-
+    
+    private void FixedUpdate() {
+        rb.MovePosition(rb.position + _movementInput * _movementSpeed * Time.fixedDeltaTime);
+    }
     private void SubscribeToActions()
     {
         InputManager inputManager = RefManager.inputManager;
