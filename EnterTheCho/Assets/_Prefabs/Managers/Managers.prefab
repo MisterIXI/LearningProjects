@@ -107,6 +107,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4358654799653122219, guid: c4277a3d8d380c34bb218c3f1b7b377c, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 2689ce4a268fbc146b3258a11e9c8ce5, type: 3}
+    - target: {fileID: 4358654799653122219, guid: c4277a3d8d380c34bb218c3f1b7b377c, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4358654799653122221, guid: c4277a3d8d380c34bb218c3f1b7b377c, type: 3}
       propertyPath: m_RootOrder
       value: 2

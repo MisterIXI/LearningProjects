@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movementInput;
     [SerializeField] private float _movementSpeed;
     private Rigidbody2D rb;
-    [SerializeField] private float _DodgeRollDistance;
+    [SerializeField] private float _DodgeRollDistance= 10f;
     private void Start() {
         SubscribeToActions();
         rb = GetComponent<Rigidbody2D>();
@@ -36,12 +36,14 @@ public class PlayerMovement : MonoBehaviour
     private void Dodge()
     {
         // start animation
-        
+        Debug.Log("DODGE ROLL");
+        Debug.Log("previous: rb.Position: "+ rb.position + " MOVEDOGE: " + _movementInput *_DodgeRollDistance);
         rb.MovePosition(rb.position + _movementInput *_DodgeRollDistance);
+        Debug.Log("current: rb.Position: "+ rb.position + " MOVEDOGE: " + _movementInput *_DodgeRollDistance);
     }
     
     private void FixedUpdate() {
-        rb.MovePosition(rb.position + _movementInput * _movementSpeed * Time.fixedDeltaTime);
+        // rb.MovePosition(rb.position + _movementInput * _movementSpeed * Time.fixedDeltaTime);
     }
     private void SubscribeToActions()
     {
